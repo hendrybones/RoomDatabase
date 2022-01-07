@@ -1,5 +1,9 @@
 package com.example.roomdatabase.database
 
-class SleepDatabaseDao {
+import androidx.room.Insert
+
+interface SleepDatabaseDao {
+    @Insert
+    suspend fun insert()
 
 }
