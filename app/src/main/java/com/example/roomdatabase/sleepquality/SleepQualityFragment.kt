@@ -21,7 +21,7 @@ class SleepQualityFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 //        val binding= DataBindingUtil.inflate<FragmentSleepQualityBinding>(inflater,R.layout.fragment_sleep_quality,container,false)
-        binding = FragmentSleepQualityBinding.inflate(layoutInflater)
+        binding= FragmentSleepQualityBinding.inflate(layoutInflater)
 
         return binding!!.root
     }

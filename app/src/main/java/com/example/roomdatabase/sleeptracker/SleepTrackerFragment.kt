@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import com.example.roomdatabase.R
+import com.example.roomdatabase.database.SleepDatabase
 import com.example.roomdatabase.databinding.FragmentSleepQualityBinding
 import com.example.roomdatabase.databinding.FragmentSleepTrackerBinding
 
@@ -25,6 +27,14 @@ class SleepTrackerFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
        binding = FragmentSleepTrackerBinding.inflate(layoutInflater)
+        val application= requireNotNull(this.activity).application
+        val dataSource= SleepDatabase.getInstance(application).sleepDatabaseDao
+        val viewModelFactory=SleepTrackerViewModelFactory(dataSource,application)
+        val sleepTrackerViewModel=
+            ViewModelProviders.of(
+                this,viewModelFactory).get(SleepTrackerViewModel::class.java)
+        binding!!.sleepTrackerModel=sleepTrackerViewModel
+        binding!!.setLifecycleOwner (this)
         return  binding!!.root
     }
 
