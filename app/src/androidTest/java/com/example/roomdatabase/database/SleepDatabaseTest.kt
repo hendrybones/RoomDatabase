@@ -28,9 +28,9 @@ class SleepDatabaseTest {
     @Test
     suspend fun insertANDGetNight(){
         val night=SleepNight()
-//        sleepDatabaseDao.insert(night)
-//        val tonight=sleepDatabaseDao.getTonight()
-//        assertEquals(tonight?.sleepQuality, -1)
+        sleepDatabaseDao.insert(night)
+        val tonight=sleepDatabaseDao.getTonight()
+        assertEquals(tonight?.sleepQuality, -1)
     }
 
 }
